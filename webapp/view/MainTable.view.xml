@@ -1,0 +1,38 @@
+<mvc:View controllerName="mdonamcve.controller.MainTable"
+	xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified" xmlns:m="sap.m" xmlns:tnt="sap.tnt" height="100%">
+	<m:Page title="Risultati della ricerca" navButtonPress="onNavBack" showNavButton="true" enableScrolling="false" class="sapUiContentPadding">
+		<m:content>
+			<Table id="table" selectionMode="MultiToggle" 
+				rows="{
+					path: '/Orders/'
+					}"
+				visibleRowCountMode="Auto" ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar>
+						<m:FormattedText
+							htmlText="&lt;h3> Results &lt;/h3>"/>
+						<m:ToolbarSpacer/>
+						<m:Button id="toggleShowSelected" icon="sap-icon://multiselect-all" tooltip="Show selected rows" press="onShowSelected"/>
+						<m:Button icon="sap-icon://decline" tooltip="Remove all filters" press="clearAllFilters"/>
+						<m:ToolbarSeparator/>
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column id="ShipName" sortProperty="ShipName" filterProperty="ShipName" autoResizable="true">
+						<m:Label text="Ship Name"/>
+						<template>
+							<m:Text text="{ShipName}" wrapping="false"/>
+						</template>
+					</Column>
+					<Column id="ShipCity" sortProperty="ShipCity" filterProperty="ShipCity" autoResizable="true">
+						<m:Label text="Ship City"/>
+						<template>
+							<m:Text text="{ShipCity}" wrapping="false"/>
+						</template>
+					</Column>
+				</columns>
+			</Table>
+		</m:content>
+	</m:Page>
+</mvc:View>
